@@ -23,7 +23,7 @@ defmodule PlantGuruUnit.MixFile do
     def application do
         [
             mod: {PlantGuruUnit.Application, port()},
-            env: [copa_port: port(), registry_endpoint: 'coap://127.0.0.1:5683/registry']
+            env: [copa_port: port(), registry_endpoint: 'coap://127.0.0.1:5683/registry'],
             extra_applications: [:logger, :runtime_tools]
         ]
     end
@@ -41,6 +41,13 @@ defmodule PlantGuruUnit.MixFile do
     defp aliases do
         [
             setup: ["deps.get", "cmd npm install --prefix assets"]
+        ]
+    end
+
+    defp deps do
+        [
+            {:gen_coap, git: "https://github.com/gotthardp/gen_coap.git"},
+            {:coap, git: "https://github.com/mskv/coap.git"}
         ]
     end
 
