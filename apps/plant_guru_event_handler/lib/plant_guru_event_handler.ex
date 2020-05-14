@@ -15,6 +15,7 @@ defmodule PlantGuruEventHandler do
   use Tortoise.Handler
   require Logger
   def init(args) do
+    Logger.info("JKnakds")
     {:ok, args}
   end
 

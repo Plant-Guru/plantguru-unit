@@ -1,6 +1,6 @@
-defmodule PlantGuruEdge do
+defmodule PlantGuruUnit do
   @moduledoc """
-  Documentation for `PlantGuruEdge`.
+  Documentation for `PlantGuruUnit`.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule PlantGuruEdge do
 
   ## Examples
 
-      iex> PlantGuruEdge.hello()
+      iex> PlantGuruUnit.hello()
       :world
 
   """

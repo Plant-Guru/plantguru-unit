@@ -6,11 +6,10 @@ defmodule PlantGuruMqtt do
 
   @impl true
   def init(_opts) do
-    {:ok, hostname} = :inet.gethostname
     children = [
       {Tortoise.Connection,
        [
-         client_id: hostname,
+         client_id: Application.get_env(:plant_guru_mqtt, PlantGuruMqtt)[:client_id],
          server: {
           Tortoise.Transport.Tcp,
             host: Application.get_env(:plant_guru_mqtt, PlantGuruMqtt)[:host],

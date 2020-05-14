@@ -1,8 +1,8 @@
-defmodule PlantGuruEdgeTest do
+defmodule PlantGuruUnitTest do
   use ExUnit.Case
-  doctest PlantGuruEdge
+  doctest PlantGuruUnit
 
   test "greets the world" do
-    assert PlantGuruEdge.hello() == :world
+    assert PlantGuruUnit.hello() == :world
   end
 end

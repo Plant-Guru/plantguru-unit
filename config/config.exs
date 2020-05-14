@@ -22,8 +22,4 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
-config :plant_guru_mqtt, PlantGuruMqtt,
-  host: "http://sebastian-grebe.com",
-  port: 1883
-
 import_config "#{Mix.env()}.exs"

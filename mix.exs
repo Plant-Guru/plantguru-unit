@@ -1,4 +1,4 @@
-defmodule PlantGuruUnit.MixProject do
+defmodule PlantGuruUnit.Umbrella.MixProject do
   use Mix.Project
 
   def project do
@@ -16,6 +16,8 @@ defmodule PlantGuruUnit.MixProject do
   #
   # Run "mix help deps" for examples and options.
   defp deps do
-    []
+    [
+      {:circuits_gpio, "~> 0.4.5"}
+    ]
   end
 end
