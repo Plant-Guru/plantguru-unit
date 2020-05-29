@@ -1,4 +1,6 @@
 %{
+  "circuits_gpio": {:hex, :circuits_gpio, "0.4.5", "4d5b0f707c425fc56f03086232259f65482a3d1f1cf15335253636d0bb846446", [:make, :mix], [{:elixir_make, "~> 0.6", [hex: :elixir_make, repo: "hexpm", optional: false]}], "hexpm", "b42d28d60a6cfdfb6b21b66ab0b8c5de0ea5a32b390b61d2fe86a2ad8edb90ad"},
+  "elixir_make": {:hex, :elixir_make, "0.6.0", "38349f3e29aff4864352084fc736fa7fa0f2995a819a737554f7ebd28b85aaab", [:mix], [], "hexpm", "d522695b93b7f0b4c0fcb2dfe73a6b905b1c301226a5a55cb42e5b14d509e050"},
   "gen_state_machine": {:hex, :gen_state_machine, "2.1.0", "a38b0e53fad812d29ec149f0d354da5d1bc0d7222c3711f3a0bd5aa608b42992", [:mix], [], "hexpm", "ae367038808db25cee2f2c4b8d0531522ea587c4995eb6f96ee73410a60fa06b"},
   "tortoise": {:hex, :tortoise, "0.9.4", "3bca5f4475f80a5bd45aab644ddb3364dd0956b67f4202dcef6ed20e045ea3a6", [:mix], [{:gen_state_machine, "~> 2.0", [hex: :gen_state_machine, repo: "hexpm", optional: false]}], "hexpm", "d5c00d7c2329016376181e19f18116a10fc65691bd96b08e5b726ca050d10094"},
 }
