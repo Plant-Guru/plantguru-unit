@@ -22,12 +22,12 @@ export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 # 4. Is there an active WiFi connection?
 iwgetid -r
 
-# if [ $? -eq 0 ]; then
-#     printf 'Skipping WiFi Connect\n'
-# else
-#     printf 'Starting WiFi Connect\n'
+if [ $? -eq 0 ]; then
+    printf 'Skipping WiFi Connect\n'
+else
+    printf 'Starting WiFi Connect\n'
     ./wifi-connect
-# fi
+fi
 
 # Start your application here.
 sleep infinity
