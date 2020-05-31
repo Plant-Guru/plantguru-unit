@@ -9,7 +9,8 @@ defmodule PlantGuruUnit.Application do
     children = [
       # Starts a worker by calling: PlantGuruUnit.Worker.start_link(arg)
       # {PlantGuruUnit.Worker, arg}
-      {PlantGuruMqtt, []}
+      {PlantGuruMqtt, []},
+      {PlantGuruConfigurator, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
