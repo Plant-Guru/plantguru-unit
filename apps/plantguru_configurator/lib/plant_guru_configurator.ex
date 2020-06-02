@@ -11,7 +11,7 @@ defmodule PlantGuruConfigurator do
       Plug.Cowboy.child_spec(
         scheme: :http,
         plug: PlantGuruConfigurator.Endpoint,
-        options: [port: 4001]
+        options: [port: 80]
       )
     ]
 

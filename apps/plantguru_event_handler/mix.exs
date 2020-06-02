@@ -3,7 +3,7 @@ defmodule PlantGuruEventHandler.MixProject do
 
   def project do
     [
-      app: :plant_guru_event_handler,
+      app: :plantguru_event_handler,
       version: "0.1.0",
       build_path: "../../_build",
       config_path: "../../config/config.exs",

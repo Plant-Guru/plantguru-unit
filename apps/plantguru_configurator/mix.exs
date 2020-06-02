@@ -1,9 +1,9 @@
-defmodule PlantGuruUnit.MixProject do
+defmodule PlantGuruConfigurator.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :plant_guru_edge,
+      app: :plantguru_configurator,
       version: "0.1.0",
       build_path: "../../_build",
       config_path: "../../config/config.exs",
@@ -18,17 +18,16 @@ defmodule PlantGuruUnit.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger],
-      mod: {PlantGuruUnit.Application, []}
+      extra_applications: [:logger, :plug_cowboy]
     ]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
-      # {:sibling_app_in_umbrella, in_umbrella: true}
+      {:plug_cowboy, "~> 2.2"},
+      {:cowboy, "< 2.8.0", override: true},
+      {:jason, "~> 1.2"}
     ]
   end
 end

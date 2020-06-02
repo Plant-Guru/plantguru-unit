@@ -16,4 +16,5 @@ WORKDIR /usr/src/app
 
 RUN mix deps.get
 
+EXPOSE 80
 CMD ["mix", "run", "--no-halt"]

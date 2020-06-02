@@ -8,9 +8,15 @@ defmodule PlantGuruConfigurator.Endpoint do
     require Logger
 
     # This module is a Plug, that also implements it's own plug pipeline, below:
-
+    use Plug.Debugger, otp_app: :plantguru_configurator
     # Using Plug.Logger for logging request information
     plug(Plug.Logger)
+    #plug Plug.Static, from: "#{current_path}/apps/plantguru_configurator/assets"
+    plug Plug.Static,
+      at: "/",
+      from: "priv/static",
+      gzip: false
+
     # responsible for matching routes
     plug(:match)
     # Using Poison for JSON decoding
@@ -20,10 +26,10 @@ defmodule PlantGuruConfigurator.Endpoint do
     # responsible for dispatching responses
     plug(:dispatch)
 
-    # A simple route to test that the server is up
-    # Note, all routes must return a connection as per the Plug spec.
-    get "/ping" do
-      send_resp(conn, 200, System.get_env("BALENA_DEVICE_UUID"))
+    post "/login" do
+      case conn.body_params do
+        _ -> {422, missing_events()}
+      end
     end
 
     # Handle incoming events, if the payload is the right shape, process the
@@ -38,6 +44,19 @@ defmodule PlantGuruConfigurator.Endpoint do
       send_resp(conn, status, body)
     end
 
+    # A simple route to test that the server is up
+    # Note, all routes must return a connection as per the Plug spec.
+    get "/" do
+      {:ok, current_path} = File.cwd
+      path = "#{current_path}/apps/plantguru_configurator/template/index.html"
+      Logger.info(path)
+
+      conn
+      |> put_resp_header("content-type", "text/html; charset=utf-8")
+      |> send_file(200, path)
+      #send_resp(conn, 200, System.get_env("BALENA_DEVICE_UUID"))
+    end
+
     defp process_events(events) when is_list(events) do
       # Do some processing on a list of events
       Jason.encode!(%{response: "Received Events!"})
@@ -49,7 +68,7 @@ defmodule PlantGuruConfigurator.Endpoint do
     end
 
     defp missing_events do
-        Jason.encode!(%{error: "Expected Payload: { 'events': [...] }"})
+      Jason.encode!(%{error: "Expected Payload: { 'events': [...] }"})
     end
 
     # A catchall route, 'match' will match no matter the request method,

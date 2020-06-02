@@ -9,11 +9,11 @@ defmodule PlantGuruMqtt do
     children = [
       {Tortoise.Connection,
        [
-         client_id: Application.get_env(:plant_guru_mqtt, PlantGuruMqtt)[:client_id],
+         client_id: Application.get_env(:plantguru_mqtt, PlantGuruMqtt)[:client_id],
          server: {
           Tortoise.Transport.Tcp,
-            host: Application.get_env(:plant_guru_mqtt, PlantGuruMqtt)[:host],
-            port: Application.get_env(:plant_guru_mqtt, PlantGuruMqtt)[:port]
+            host: Application.get_env(:plantguru_mqtt, PlantGuruMqtt)[:host],
+            port: Application.get_env(:plantguru_mqtt, PlantGuruMqtt)[:port]
           },
           handler: {PlantGuruEventHandler, []}
        ]}
